@@ -1,6 +1,6 @@
 {
   "name": "@transactrx/cognito-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Utility libary to help with implment Code Request Flow client.  Use code passed from cognito authentication and parse and validate the the tokens.",
   "main": "index.js",
   "scripts": {
