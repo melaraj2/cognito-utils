@@ -1,6 +1,6 @@
 {
-  "name": "cognito-utils",
-  "version": "1.0.0",
+  "name": "@transactrx/cognito-utils",
+  "version": "1.0.2",
   "description": "Utility libary to help with implment Code Request Flow client.  Use code passed from cognito authentication and parse and validate the the tokens.",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "jsonwebtoken": "^8.5.1",
-    "jwk-to-pem": "^2.0.3"
+    "jwk-to-pem": "^2.0.3",
+    "yarn": "^1.22.4"
   }
 }

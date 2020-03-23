@@ -48,6 +48,7 @@ function authenticateToken(tokenkey,token) {
                     var resp={};
                     resp.tokenKey=tokenkey;
                     resp.token=decoded;
+                    resp.orignalToken=token;
 
                     resolve(resp);
                 }
@@ -86,10 +87,12 @@ cognitoUtils.getCognitoTokens=function getCognitoTokens(code){
                 Promise.all(promises).then(tokens=>{
                     result={};
                     result.tokens={};
+                    result.originalTokens={};
                     result.refreshToken=response.data.refresh_token;
                     result.expires_in=response.data.expires_in;
                     for (var token  of tokens) {
                         result.tokens[token.tokenKey]=token.token;
+                        result.originalTokens[token.tokenKey]=token.orignalToken;
                     }
 
                     resolve(result);
