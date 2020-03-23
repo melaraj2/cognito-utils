@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo Logging in to Amazon ECR...
+      - export PROJECTNAME="cognito-utils"
+      - export VERSION=$IMAGE_TAG
+      - echo $NPMRCGLOBAL > ~/.npmrc
+      - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" .npmrc
+      - npm install jshint -g
+  pre_build:
+    commands:
+      - echo "building $PROJECTNAME"
+  build:
+    commands:
+      - npm run jshint
+      - npm install
+      - npm publish
+      - echo "build of $PROJECTNAME completed"

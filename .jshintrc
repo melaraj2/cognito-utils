@@ -1,0 +1,8 @@
+{
+  "maxerr"        : 50,
+  "latedef"       : false,
+  "esversion"     : 6,
+  "moz"           : false,
+  "node"          : true,
+  "globals"       : {}
+}

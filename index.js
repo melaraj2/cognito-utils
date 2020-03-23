@@ -39,7 +39,7 @@ function authenticateToken(tokenkey,token) {
         var decoded = jwt.decode(token, {complete: true});
 
         getCognitoPublicKeys(decoded).then(pubKeys => {
-            var jwk = pubKeys[decoded.header.kid]
+            var jwk = pubKeys[decoded.header.kid];
             var pem = jwkToPem(jwk);
             jwt.verify(token, pem, {algorithms: [decoded.header.alg]}, function (err, decodedToken) {
                 if (err) {
@@ -81,8 +81,8 @@ cognitoUtils.getCognitoTokens=function getCognitoTokens(code){
                 console.log(response.data.id_token);
 
                 promises=[];
-                promises.push(authenticateToken("id_token",response.data["id_token"]));
-                promises.push(authenticateToken("access_token",response.data["access_token"]));
+                promises.push(authenticateToken("id_token",response.data.id_token));
+                promises.push(authenticateToken("access_token",response.data.access_token));
 
                 Promise.all(promises).then(tokens=>{
                     result={};
@@ -102,7 +102,7 @@ cognitoUtils.getCognitoTokens=function getCognitoTokens(code){
                 });
             })
             .catch((error) => {
-                console.error(error)
+                console.error(error);
                 reject(err);
             });
     });
